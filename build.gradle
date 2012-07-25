@@ -1,0 +1,15 @@
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'scala'
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  groovy 'org.codehaus.groovy:groovy:2.0.0'
+  compile 'org.scala-lang:scala-library:2.9.2'
+
+  scalaTools 'org.scala-lang:scala-compiler:2.9.2'
+  scalaTools 'org.scala-lang:scala-library:2.9.2'
+}
