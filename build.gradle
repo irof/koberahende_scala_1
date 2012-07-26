@@ -9,7 +9,15 @@ repositories {
 dependencies {
   groovy 'org.codehaus.groovy:groovy:2.0.0'
   compile 'org.scala-lang:scala-library:2.9.2'
+  testCompile 'org.scalatest:scalatest_2.9.1-1:1.8'
 
   scalaTools 'org.scala-lang:scala-compiler:2.9.2'
   scalaTools 'org.scala-lang:scala-library:2.9.2'
+}
+
+test << {
+    ant.taskdef(name: 'scalatest', classname: 'org.scalatest.tools.ScalaTestAntTask', classpath: classpath.asPath)
+    ant.scalatest(runpath: testClassesDir, haltonfailure: 'true', fork: 'false') {
+        reporter(type: 'stdout')
+    }
 }
