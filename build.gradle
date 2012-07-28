@@ -28,3 +28,7 @@ test.doFirst {
     println e
   }
 }
+
+task wrapper(type: Wrapper) {
+  gradleVersion = '1.0'
+}
