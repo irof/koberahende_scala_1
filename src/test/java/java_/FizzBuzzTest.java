@@ -1,35 +1,58 @@
 package java_;
 
 import org.junit.*;
+import org.junit.experimental.runners.Enclosed;
+import org.junit.runner.RunWith;
+
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 
+//@RunWith(Enclosed.class)
 public class FizzBuzzTest {
 
-	@Test
-	public void fizzBuzzJava() {
-		interfaces.FizzBuzz sut = new FizzBuzz();
-		assertThat(sut.invoke(1), is("1"));
-		assertThat(sut.invoke(3), is("Fizz"));
-		assertThat(sut.invoke(5), is("Buzz"));
-		assertThat(sut.invoke(15), is("FizzBuzz"));
+	@Ignore
+	public abstract static class _FizzBuzz {
+		protected interfaces.FizzBuzz sut;
+
+		@Test
+		public void 何の倍数でもない() {
+			assertThat(sut.invoke(1), is("1"));
+		}
+
+		@Test
+		public void 三の倍数() {
+			assertThat(sut.invoke(3), is("Fizz"));
+		}
+
+		@Test
+		public void 五の倍数() {
+			assertThat(sut.invoke(5), is("Buzz"));
+		}
+
+		@Test
+		public void 十五の倍数() {
+			assertThat(sut.invoke(15), is("FizzBuzz"));
+		}
 	}
 
-	@Test
-	public void fizzBuzzScala() {
-		interfaces.FizzBuzz sut = new scala.FizzBuzz();
-		assertThat(sut.invoke(1), is("1"));
-		assertThat(sut.invoke(3), is("Fizz"));
-		assertThat(sut.invoke(5), is("Buzz"));
-		assertThat(sut.invoke(15), is("FizzBuzz"));
+	public static class FizzBuzzJava extends _FizzBuzz {
+		@Before
+		public void before() {
+			sut = new FizzBuzz();
+		}
 	}
 
-	@Test
-	public void fizzBuzzGroovy() {
-		interfaces.FizzBuzz sut = new groovy.FizzBuzz();
-		assertThat(sut.invoke(1), is("1"));
-		assertThat(sut.invoke(3), is("Fizz"));
-		assertThat(sut.invoke(5), is("Buzz"));
-		assertThat(sut.invoke(15), is("FizzBuzz"));
+	public static class FizzBuzzScala extends _FizzBuzz {
+		@Before
+		public void before() {
+			sut = new scala.FizzBuzz();
+		}
+	}
+
+	public static class FizzBuzzGroovy extends _FizzBuzz {
+		@Before
+		public void before() {
+			sut = new groovy.FizzBuzz();
+		}
 	}
 }
