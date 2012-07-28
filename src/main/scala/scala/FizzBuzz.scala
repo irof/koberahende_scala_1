@@ -1,7 +1,7 @@
 package scala
 
-object FizzBuzz {
-  def fizzBuzz(num: Int): String = {
+class FizzBuzz extends interfaces.FizzBuzz {
+  def invoke(num: Int): String = {
     (num % 3, num % 5) match {
       case (0, 0) => "FizzBuzz"
       case (0, _) => "Fizz"

@@ -7,7 +7,7 @@ class FizzBuzzTest extends Specification {
   @Unroll
   def "Javaで #num の時 #res になる"() {
     expect:
-    new java_.FizzBuzz().fizzBuzz(num) == res
+    new java_.FizzBuzz().invoke(num) == res
 
     where:
     num   | res
@@ -20,7 +20,7 @@ class FizzBuzzTest extends Specification {
   @Unroll
   def "Scalaで #num の時 #res になる"() {
     expect:
-    scala.FizzBuzz.fizzBuzz(num) == res
+    new scala.FizzBuzz().invoke(num) == res
 
     where:
     num   | res
@@ -33,7 +33,7 @@ class FizzBuzzTest extends Specification {
   @Unroll
   def "Groovyで #num の時 #res になる"() {
     expect:
-    FizzBuzz.fizzBuzz(num) == res
+    new FizzBuzz().invoke(num) == res
 
     where:
     num   | res
