@@ -1,4 +1,4 @@
-package java_;
+package junit;
 
 import org.junit.*;
 import org.junit.experimental.runners.Enclosed;
@@ -38,7 +38,7 @@ public class FizzBuzzTest {
 	public static class FizzBuzzJava extends _FizzBuzz {
 		@Before
 		public void before() {
-			sut = new FizzBuzz();
+			sut = new java_.FizzBuzz();
 		}
 	}
 

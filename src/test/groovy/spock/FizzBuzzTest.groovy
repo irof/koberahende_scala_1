@@ -1,4 +1,4 @@
-package groovy
+package spock
 
 import spock.lang.*
 
@@ -33,7 +33,7 @@ class FizzBuzzTest extends Specification {
   @Unroll
   def "Groovyで #num の時 #res になる"() {
     expect:
-    new FizzBuzz().invoke(num) == res
+    new groovy.FizzBuzz().invoke(num) == res
 
     where:
     num   | res

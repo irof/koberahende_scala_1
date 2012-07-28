@@ -1,8 +1,9 @@
-package scala
+package scalatest
 
 import org.scalatest._
 import java_.{FizzBuzz => JFizzBuzz}
 import groovy.{FizzBuzz => GFizzBuzz}
+import scala.{FizzBuzz => SFizzBuzz}
 
 class FizzBuzzTest extends FunSpec {
 
@@ -23,16 +24,16 @@ class FizzBuzzTest extends FunSpec {
 
   describe("ScalaFizzBuzz") {
     it ("should return 'FizzBuzz' from a multiple of fifty") {
-      assert(new FizzBuzz().invoke(15) == "FizzBuzz")
+      assert(new SFizzBuzz().invoke(15) == "FizzBuzz")
     }
     it ("should return 'Fizz' from a multiple of three only") {
-      assert(new FizzBuzz().invoke(3) == "Fizz")
+      assert(new SFizzBuzz().invoke(3) == "Fizz")
     }
     it ("should return 'Buzz' from a multiple of five only") {
-      assert(new FizzBuzz().invoke(5) == "Buzz")
+      assert(new SFizzBuzz().invoke(5) == "Buzz")
     }
     it ("should return the stringified input from a non multiple of three or five") {
-      assert(new FizzBuzz().invoke(15) == "FizzBuzz")
+      assert(new SFizzBuzz().invoke(15) == "FizzBuzz")
     }
   }
 
