@@ -23,14 +23,11 @@ dependencies {
   scalaTools 'org.scala-lang:scala-library:2.9.2'
 }
 
+test.ignoreFailures = true
 test.doFirst {
-  try {
-    ant.taskdef(name: 'scalatest', classname: 'org.scalatest.tools.ScalaTestAntTask', classpath: classpath.asPath)
-    ant.scalatest(runpath: testClassesDir, haltonfailure: 'true', fork: 'false') {
-      reporter(type: 'junitxml', directory: 'build/test-results')
-    }
-  } catch(Exception e) {
-    println e
+  ant.taskdef(name: 'scalatest', classname: 'org.scalatest.tools.ScalaTestAntTask', classpath: classpath.asPath)
+  ant.scalatest(runpath: testClassesDir, fork: 'false') {
+    reporter(type: 'junitxml', directory: 'build/test-results')
   }
 }
 
